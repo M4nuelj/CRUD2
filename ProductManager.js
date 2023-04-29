@@ -72,3 +72,5 @@ productManager.createProduct({ title:'Glass', description:'Item', price:1200, th
 
 
 console.log(productManager.getAllProducts());
+
+console.log('Hola esto es una prueba')
