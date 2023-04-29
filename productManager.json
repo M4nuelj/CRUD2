@@ -1,0 +1,29 @@
+[
+  {
+    "id": 9176,
+    "title": "Mango",
+    "description": "Fruit",
+    "price": 2000,
+    "thumbnail": "NA",
+    "code": "abd234",
+    "stock": 45
+  },
+  {
+    "id": 1478,
+    "title": "Apple",
+    "description": "Fruit",
+    "price": 3000,
+    "thumbnail": "NA",
+    "code": "abd444",
+    "stock": 48
+  },
+  {
+    "id": 5804,
+    "title": "Glass",
+    "description": "Item",
+    "price": 1200,
+    "thumbnail": "NA",
+    "code": "abd134",
+    "stock": 23
+  }
+]

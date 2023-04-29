@@ -18,7 +18,32 @@ class ProductManager {
         }
 
     }
-    createProduct(product) {
+    createProduct(productList) {
+        const {
+            title, 
+            description, 
+            price, 
+            thumbnail, 
+            code, 
+            stock
+        }= productList
+
+        if(!title||!description||!price||!thumbnail||!code||!stock){
+            console.log('Es necesario registrar todos los datos del producto')
+            return
+
+        }
+        const id=Math.floor(Math.random()*9999);
+        const product={
+            id, 
+            title, 
+            description, 
+            price, 
+            thumbnail, 
+            code, 
+            stock
+        }
+
         const codeProduct = this.products.find(p => p.code === product.code);
         if (!codeProduct) {
             this.products.push(product)
@@ -29,17 +54,21 @@ class ProductManager {
             return
         }
 
+
     }
     getAllProducts() {
         return this.products
     }
+    upDateProduct(){
+
+        
+    }
 }
 
 const productManager = new ProductManager();
-productManager.createProduct({ code: 123, title: 'Apple', tipe: 'fruit', price: 1200 });
-productManager.createProduct({ code: 124, title: 'Icream', tipe: 'Candy', price: 3000 });
-productManager.createProduct({ code: 224, title: 'Glass', tipe: 'Ktchen', price: 7000 });
-productManager.createProduct({ code: 224, title: 'Book', tipe: 'Scholar articule', price: 12000 });
+productManager.createProduct({ title:'Mango', description:'Fruit', price:2000, thumbnail:'NA', code:'abd234', stock:45 });
+productManager.createProduct({ title:'Apple', description:'Fruit', price:3000, thumbnail:'NA', code:'abd444', stock:48  });
+productManager.createProduct({ title:'Glass', description:'Item', price:1200, thumbnail:'NA', code:'abd134', stock:23  });
 
-console.log(productManager.createProduct());
+
 console.log(productManager.getAllProducts());
