@@ -98,6 +98,7 @@ class ProductManager {
 // productManager.createProduct({ title:'Apple', description:'Fruit', price:3000, thumbnail:'NA', code:'abd444', stock:48  });
 // productManager.createProduct({ title:'Glass', description:'Item', price:1200, thumbnail:'NA', code:'abd134', stock:23  });
 
+console.log("Bienvenidos al reto CRUD");
 // console.log(productManager.getAllProducts());
 // console.log(productManager.getProductById(1478));
 // console.log(productManager.UpdateProduct(1478, {title:'pep10per'}));
