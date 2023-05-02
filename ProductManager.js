@@ -102,4 +102,4 @@ class ProductManager {
 // console.log(productManager.getProductById(1478));
 // console.log(productManager.UpdateProduct(1478, {title:'pep10per'}));
 // console.log(productManager.deleteProduct(7152));
-// console.log(productManager.getAllProducts());
+console.log(productManager.getAllProducts());
