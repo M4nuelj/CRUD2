@@ -59,18 +59,47 @@ class ProductManager {
     getAllProducts() {
         return this.products
     }
-    upDateProduct(){
+    getProductById(id){
+        let idProduct= this.products.find(product=>product.id===id)
+        if(!idProduct){
+            return  'Este id de producto no existe, por favor intenta otro'
+        }
+        return idProduct;
+    }
+    UpdateProduct(id, changes){
+        this.products=this.getAllProducts();
+        const indexProduct= this.products.findIndex((product)=>product.id===id);
 
+        if(indexProduct===-1){
+            return 'El articulo buscado no existe, por favor intente de nuevo'
+        }
         
+        let newProduct=this.products[indexProduct];
+        let updateProduct={...newProduct, ...changes};
+        this.products[indexProduct]=updateProduct;
+        fs.writeFileSync('productManager.json',JSON.stringify(this.products, null,2));
+        return updateProduct;
+    }
+    deleteProduct(id){
+        let products=this.getAllProducts();
+        let productToDelete = products.find(product=>product.id===id);
+        if(!productToDelete){
+            return 'El producto seleccionado no existe'; 
+        }
+
+        const productDeleted= products.filter((product)=>product.id!==id);
+        fs.writeFileSync('productManager.json',JSON.stringify(productDeleted, null,2));
+        return `El producto ${productToDelete.title} se elimino de forma exitosa`;
     }
 }
 
-const productManager = new ProductManager();
-productManager.createProduct({ title:'Mango', description:'Fruit', price:2000, thumbnail:'NA', code:'abd234', stock:45 });
-productManager.createProduct({ title:'Apple', description:'Fruit', price:3000, thumbnail:'NA', code:'abd444', stock:48  });
-productManager.createProduct({ title:'Glass', description:'Item', price:1200, thumbnail:'NA', code:'abd134', stock:23  });
+// const productManager = new ProductManager();
+// productManager.createProduct({ title:'Mango', description:'Fruit', price:2000, thumbnail:'NA', code:'abd234', stock:45 });
+// productManager.createProduct({ title:'Apple', description:'Fruit', price:3000, thumbnail:'NA', code:'abd444', stock:48  });
+// productManager.createProduct({ title:'Glass', description:'Item', price:1200, thumbnail:'NA', code:'abd134', stock:23  });
 
-
-console.log(productManager.getAllProducts());
-
-console.log('Hola esto es una prueba')
+// console.log(productManager.getAllProducts());
+// console.log(productManager.getProductById(1478));
+// console.log(productManager.UpdateProduct(1478, {title:'pep10per'}));
+// console.log(productManager.deleteProduct(7152));
+// console.log(productManager.getAllProducts());
