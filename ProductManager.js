@@ -50,7 +50,7 @@ class ProductManager {
             const stringFile = JSON.stringify(this.products, null, 2);
             fs.writeFileSync('productManager.json', stringFile);
         } else {
-            console.log(`The item ${product.title} already exist, plase registera new item`)
+            console.log(`El artículo ${product.title} ya existe, por favor registre uno nuevo`)
             return
         }
 
@@ -71,7 +71,7 @@ class ProductManager {
         const indexProduct= this.products.findIndex((product)=>product.id===id);
 
         if(indexProduct===-1){
-            return 'El articulo buscado no existe, por favor intente de nuevo'
+            return 'El artículo buscado no existe, por favor intente de nuevo'
         }
         
         let newProduct=this.products[indexProduct];
